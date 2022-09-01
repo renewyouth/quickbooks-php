@@ -630,11 +630,11 @@ class QuickBooks_Driver_Sql_Mysqli extends QuickBooks_Driver_Sql
 		if (is_array($primary))
 		{
 			//ALTER TABLE  `quickbooks_ident` ADD PRIMARY KEY (  `qb_action` ,  `unique_id` )
-			$arr_sql[] = 'ALTER TABLE ' . $name . ' ADD PRIMARY KEY ( ' . implode(', ', $primary) . ' ) ';
+			$arr_sql[] = 'ALTER TABLE ' . $name . ' DROP PRIMARY KEY, ADD PRIMARY KEY ( ' . implode(', ', $primary) . ' ) ';
 		}
 		else if ($primary)
 		{
-			$arr_sql[] = 'ALTER TABLE ' . $name . ' ADD PRIMARY KEY(' . $primary . '); ';
+			$arr_sql[] = 'ALTER TABLE ' . $name . ' DROP PRIMARY KEY, ADD PRIMARY KEY(' . $primary . '); ';
 			
 			if ($arr[$primary][0] == QUICKBOOKS_DRIVER_SQL_SERIAL)
 			{
