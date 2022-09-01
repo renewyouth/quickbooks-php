@@ -1378,7 +1378,7 @@ abstract class QuickBooks_Driver
 	{
 		if ($data = $this->_oauthLoadV1($app_tenant))
 		{
-			if (strlen($data['oauth_access_token']) > 0)
+			if (!empty($data['oauth_access_token']))
 			{
 				$AES = QuickBooks_Encryption_Factory::create('aes');
 
@@ -1398,7 +1398,7 @@ abstract class QuickBooks_Driver
 	{
 		if ($data = $this->_oauthLoadV2($app_tenant))
 		{
-			if (strlen($data['oauth_access_token']) > 0)
+			if (!empty($data['oauth_access_token']))
 			{
 				$AES = QuickBooks_Encryption_Factory::create('aes');
 

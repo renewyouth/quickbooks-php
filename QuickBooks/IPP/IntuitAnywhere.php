@@ -241,8 +241,8 @@ class QuickBooks_IPP_IntuitAnywhere
 		if ($this->_oauth_version == self::OAUTH_V1)
 		{
 			if ($arr = $this->_driver->oauthLoadV1($this->_key, $app_tenant) and
-				strlen($arr['oauth_access_token']) > 0 and
-				strlen($arr['oauth_access_token_secret']) > 0)
+				!empty($arr['oauth_access_token']) and
+				!empty($arr['oauth_access_token_secret']))
 			{
 				$arr['oauth_consumer_key'] = $this->_consumer_key;
 				$arr['oauth_consumer_secret'] = $this->_consumer_secret;
@@ -253,8 +253,8 @@ class QuickBooks_IPP_IntuitAnywhere
 		else if ($this->_oauth_version == self::OAUTH_V2)
 		{
 			if ($arr = $this->_driver->oauthLoadV2($this->_key, $app_tenant) and
-				strlen($arr['oauth_access_token']) > 0 and
-				strlen($arr['oauth_refresh_token']) > 0)
+				!empty($arr['oauth_access_token']) and
+				!empty($arr['oauth_access_token_secret']))
 			{
 				$arr['oauth_client_id'] = $this->_client_id;
 				$arr['oauth_client_secret'] = $this->_client_secret;
