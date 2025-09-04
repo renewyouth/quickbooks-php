@@ -1,7 +1,7 @@
 {
-    "name": "webstract/quickbooks-php",
+    "name": "renewyouth/quickbooks-php",
     "type": "library",
-    "homepage": "https://github.com/webstract/quickbooks-php",
+    "homepage": "https://github.com/renewyouth/quickbooks-php",
     "license": "EPL-1.0",
     "require": {
         "php": "^5.0|^7.0|^8.0"
