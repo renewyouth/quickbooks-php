@@ -170,11 +170,11 @@ class QuickBooks_IPP_IntuitAnywhere
 	 */
 	public function test($app_tenant)
 	{
-		if ($creds = $this->load($app_tenant) and
-			!empty($creds['oauth_access_token']))
+		$creds = $this->load($app_tenant);
+		if(!empty($creds['oauth_access_token']))
 		{
 			$IPP = new QuickBooks_IPP($this->_dsn, $this->_key);
-
+			
 			if ($this->_oauth_version == self::OAUTH_V1)
 			{
 				$authmode = QuickBooks_IPP::AUTHMODE_OAUTHV1;
@@ -183,7 +183,7 @@ class QuickBooks_IPP_IntuitAnywhere
 			{
 				$authmode = QuickBooks_IPP::AUTHMODE_OAUTHV2;
 			}
-
+			
 			$IPP->authMode(
 				$authmode,
 				$creds);
@@ -238,6 +238,7 @@ class QuickBooks_IPP_IntuitAnywhere
 	 */
 	public function load($app_tenant)
 	{
+
 		if ($this->_oauth_version == self::OAUTH_V1)
 		{
 			if ($arr = $this->_driver->oauthLoadV1($this->_key, $app_tenant) and
@@ -252,9 +253,9 @@ class QuickBooks_IPP_IntuitAnywhere
 		}
 		else if ($this->_oauth_version == self::OAUTH_V2)
 		{
-			if ($arr = $this->_driver->oauthLoadV2($this->_key, $app_tenant) and
-				!empty($arr['oauth_access_token']) and
-				!empty($arr['oauth_access_token_secret']))
+			$arr = $this->_driver->oauthLoadV2($this->_key, $app_tenant);
+
+			if(!empty($arr) && !empty($arr['oauth_access_token']))
 			{
 				$arr['oauth_client_id'] = $this->_client_id;
 				$arr['oauth_client_secret'] = $this->_client_secret;

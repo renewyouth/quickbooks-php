@@ -1398,10 +1398,10 @@ abstract class QuickBooks_Driver
 	{
 		if ($data = $this->_oauthLoadV2($app_tenant))
 		{
+
 			if (!empty($data['oauth_access_token']))
 			{
 				$AES = QuickBooks_Encryption_Factory::create('aes');
-
 				$data['oauth_access_token'] = $AES->decrypt($key, $data['oauth_access_token']);
 				$data['oauth_refresh_token'] = $AES->decrypt($key, $data['oauth_refresh_token']);
 			}

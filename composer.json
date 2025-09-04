@@ -1,12 +1,12 @@
 {
-    "name": "webstract/quickbooks-php",
-    "type": "library",
-    "homepage": "https://github.com/webstract/quickbooks-php",
-    "license": "EPL-1.0",
-    "require": {
-        "php": "^5.0|^7.0|^8.0"
-    },
-    "autoload": {
-        "files": ["QuickBooks.php"]
-     }
+	"name": "renewyouth/quickbooks-php",
+	"type": "library",
+	"homepage": "https://github.com/renewyouth/quickbooks-php",
+	"license": "EPL-1.0",
+	"require": {
+		"php": "^5.0|^7.0|^8.0"
+	},
+	"autoload": {
+		"files": ["QuickBooks.php"]
+	 }
 }

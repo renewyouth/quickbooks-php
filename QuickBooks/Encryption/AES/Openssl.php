@@ -24,7 +24,8 @@ QuickBooks_Loader::load('/QuickBooks/Encryption.php');
  */
 class QuickBooks_Encryption_AES_Openssl extends QuickBooks_Encryption
 {
-    const CIPHER = 'aes-256-ecb';
+    //const CIPHER = 'aes-256-ecb';
+    const CIPHER = 'aes-256-cfb';
 
     /**
      * Encrypt text with specified key
@@ -76,7 +77,7 @@ class QuickBooks_Encryption_AES_Openssl extends QuickBooks_Encryption
         if ($with_salt)
         {
             $tmp       = @unserialize($decrypted);
-            $decrypted = current($tmp);
+            $decrypted = current((array)$tmp);
         }
 
         return $decrypted;

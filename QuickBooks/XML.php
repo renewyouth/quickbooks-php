@@ -399,7 +399,7 @@ class QuickBooks_XML
 			'"' => '&quot;', 
 			);
 		
-		$str = str_replace(array_keys($transform), array_values($transform), $str);
+		$str = str_replace(array_keys($transform), array_values($transform), (string)$str);
 		
 		if (!$double_encode)
 		{
